@@ -9,7 +9,7 @@ module.exports = {
     'js/app': ['./src/index.js'],
   },
   output: {
-    path: path.resolve(__dirname, 'dist/'),
+    path: path.resolve(__dirname, 'build/'),
     publicPath: '/',
   },
   resolve: {
