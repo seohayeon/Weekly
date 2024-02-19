@@ -3,9 +3,7 @@ const CACHE_NAME = 'my-cache';
 // 캐시할 파일 목록
 const urlsToCache = [
   '/',
-  '/index.html',
-  '/styles.css',
-  '/main.js'
+  '/index.html'
 ];
 
 // Service Worker 설치
