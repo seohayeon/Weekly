@@ -1,0 +1,21 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"/><link rel="manifest" href="/manifest.json"/><title>위클리</title><style>body{
+            padding: 0;
+            margin: 0;
+        }</style><script defer="defer" src="/js/app.js"></script></head><body><script>const registerServiceWorker = async () => {
+        if ("serviceWorker" in navigator) {
+          try {
+            const registration = await navigator.serviceWorker.register("./sw.js");
+            if (registration.installing) {
+              console.log("Service worker installing");
+            } else if (registration.waiting) {
+              console.log("Service worker installed");
+            } else if (registration.active) {
+              console.log("Service worker active");
+            }
+          } catch (error) {
+            console.error(`Registration failed with ${error}`);
+          }
+        }
+      };
+
+      registerServiceWorker();</script><div id="app"></div></body></html>
