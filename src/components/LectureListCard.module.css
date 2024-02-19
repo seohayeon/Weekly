@@ -1,0 +1,27 @@
+.CardContainer{
+    background: white;
+    width: 26rem;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 1rem;
+    border: 0.2rem solid black;
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem #000;
+}
+.CardContainer:active{
+    transform: translateY(0.3rem);
+    box-shadow: 0 0px #000;
+}
+.progressContainer{
+    position: relative;
+    width: 100%;
+    height: 0.5rem;
+    border: 0.2rem solid black;
+    margin-top: 1rem;
+    border-radius: 0.5rem;
+}
+.progressBar{
+    background: purple;
+    height: 100%;
+}

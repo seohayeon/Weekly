@@ -1,0 +1,54 @@
+.container{
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    background: #FCF4E7;
+    animation: fadeIn 0.5s ease-out forwards;
+    overflow: scroll;
+    z-index: 10;
+}
+.open{
+    animation-name: fadeIn;
+}
+.closeModal{
+    transition: all 2s;
+    visibility: hidden;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+.close{
+    position: absolute;
+    border: 0.2rem solid black;
+    width: 2.5rem;
+    height: 2.5rem;
+    text-align: center;
+    line-height: 2rem;
+    font-size:2rem;
+    border-radius: 0.8rem;
+    top: 0.8rem;
+    right: 0.8rem;
+    box-shadow: 0.2rem 0.2rem #000;
+    font-family: 'BMJUA';
+}
+.close:active{
+    transform: translateY(0.2rem);
+    box-shadow: 0 0px #000;
+}

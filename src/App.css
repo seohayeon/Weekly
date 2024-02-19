@@ -1,0 +1,54 @@
+@font-face {
+    font-family: 'omyu_pretty';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'BMJUA';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/BMJUA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body{
+    background-color: #FCF4E7;
+    font-family: 'omyu_pretty';
+    font-size: 1.4rem;
+}
+input[type=text]{
+    background: white;
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem #000;
+    font-size: 1.5rem;
+    font-family: 'omyu_pretty';
+}
+input[type=text]:focus{
+    outline: none;
+    transform: translateY(0.3rem);
+    box-shadow: 0 0px #000;
+}
+button{
+    background: white;
+    padding: 0.5rem;
+    border: 0.2rem solid black;
+    display: block;
+    border-radius: 0.5rem;
+    box-shadow: 0.3rem 0.3rem #000;
+    font-family: 'omyu_pretty';
+    font-size: 1.5rem;
+}
+button:active{
+    transform: translateY(0.3rem);
+    box-shadow:none;
+}
+div{
+    -ms-user-select: none; 
+   -moz-user-select: -moz-none;
+   -khtml-user-select: none;
+   -webkit-user-select: none;
+   user-select: none;
+}

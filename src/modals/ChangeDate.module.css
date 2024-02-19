@@ -1,0 +1,25 @@
+.CalendarContainer{
+    animation: fadeIn 0.3s ease-out forwards;
+    z-index: 999;
+    position: fixed;
+    bottom: 0;
+    width: 28rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem 1rem 0 0;
+    overflow: hidden;
+}
+
+.submitBtn{
+    width:100%;
+    margin-top: 1.5rem;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0%);
+  }
+}

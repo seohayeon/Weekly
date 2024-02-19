@@ -1,0 +1,22 @@
+.navBar{
+    background: white;
+    position: fixed;
+    bottom: 1rem;
+    margin: 0 auto;
+    left: 50%;
+    transform:translate(-50%,0%);
+    overflow: hidden;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: 0.2rem solid black;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+.homeIcon{
+    float: left;
+    margin-right: 0.5rem;
+}
+.menuIcon{
+    float: left;
+    margin-left: 0.5rem;
+}

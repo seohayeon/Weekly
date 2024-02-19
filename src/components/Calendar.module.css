@@ -1,0 +1,58 @@
+.emptyDay{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 0.5rem;
+}
+.dayBlock{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 1rem;
+    background: #e2e2e2;
+    text-align: center;
+    position: relative;
+}
+.calendarContainer{
+    margin: 0 auto;
+    border-spacing:0.5rem;
+}
+.today{
+    background: #a9a9a9;
+}
+.selected{
+    box-shadow: 0 0 0 0.2rem gray inset;
+}
+.mark{
+    width: 0.5rem;
+    height: 0.5rem;
+    background: black;
+    float: left;
+    margin-left: 0.1rem;
+    border-radius: 50%;
+    background: #FF629D;
+}
+.marks{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding-top: 0.5rem;
+}
+.CalendarHeader{
+    text-align: center;
+}
+.Year{
+    float: left;
+}
+.Date{
+    float: left;
+}
+.YDContainer{
+    margin: 0 auto;
+    overflow:hidden;
+    display: inline-block;
+    font-size: 2.5rem;
+    font-weight:200;
+    margin-top: 4rem;
+}
+.controller{
+    float: left;
+}
