@@ -2,7 +2,7 @@
     "name": "위클리",
     "short_name": "위클리",
     "description": "위클리 공부계획을 세우자!",
-    "theme_color": "#1976d2",
+    "theme_color": "#fafafa",
     "background_color": "#fafafa",
     "display": "standalone",
     "scope": "./",

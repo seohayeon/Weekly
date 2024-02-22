@@ -1,14 +1,32 @@
+.container{
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+}
+.container > *{
+    flex-grow: 0;
+}
 .todayPlan{
     background: white;
     width: 26rem;
-    margin: 0 auto;
-    margin-top: 0.5rem;
+    margin-top: 5rem;
     padding: 1rem;
     border: 0.2rem solid black;
     display: block;
     border-radius: 0.5rem;
     box-shadow: 0.3rem 0.3rem #000;
     margin-bottom: 5rem;
+}
+@media (max-width: 26rem) {
+  .todayPlan {
+    width: calc(100% - 2rem);
+  }
+}
+.lectureInfo{
+    width: 23rem;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .eachPlan{
     margin-top: 0.2rem;

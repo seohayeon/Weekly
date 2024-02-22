@@ -155,13 +155,17 @@ const App = ({lecture}) => {
       <div className={styles.planType} onClick={()=>setPlanType(1)} style={{color:planType==1?'#000':'gray'}}>&nbsp;세부계획</div>
       </div>
       {planType==0?<><div className={styles.LectureListContainer}>
-        
-          강좌선택
-          <input type="checkbox" onChange={handleAllCheck} checked={checkItems.length==lectureArr.length?true:false}/>
+        <div className={styles.lectureRow}>
+          <input type="checkbox" onChange={handleAllCheck} checked={checkItems.length==lectureArr.length?true:false} className={styles.checkBox} id='selectAll'/>
+                 <label htmlFor='selectAll'></label>
+                 전체선택
+        </div>
            {
                lectureArr.map(e=>
-               <div>
-                 <input checked={checkItems.indexOf(e)==-1?false:true} id={e} type='checkbox' onChange={checkHandled}/> {e}강
+               <div className={styles.lectureRow}>
+                 <input checked={checkItems.indexOf(e)==-1?false:true} id={e} type='checkbox' onChange={checkHandled} className={styles.checkBox}/>
+                 <label htmlFor={e}></label>
+                 {e}강
                 </div> 
                )
            }

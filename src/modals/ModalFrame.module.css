@@ -1,0 +1,39 @@
+.container{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 99;
+    background: rgba(0,0,0,0.3);
+    top: 0;
+}
+
+.innerContainer{
+    animation: fadeIn 0.3s ease-out forwards;
+    top: 40%;
+    left: 50%;
+    position: fixed;
+    padding: 1rem;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    transform: translate(-50%,-50%);
+    width: 28rem;
+}
+@keyframes fadeOut {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(100%);
+  }
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

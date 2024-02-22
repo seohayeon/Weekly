@@ -20,7 +20,7 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
     const inputRef = useRef()
     const handleDelete=async()=>{
         await DB.open()
-        await Planner.find({value:selected,key:'id'}).delete()
+        await Planner.find({value:selected.id,key:'id'}).delete()
         setOpen(false)
         
     }
@@ -30,10 +30,17 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
     }
     const handlePutOff=async()=>{
         await DB.open()
-        const planData = await Planner.find({value:selected,key:'id'}).get()
-        const date = planData[0].date
+        const planData = await Planner.find({value:selected.id,key:'id'}).get()
+        const date = new Date(planData[0].date)
         date.setDate(date.getDate() + 1);
-        await Planner.find({value:selected,key:'id'}).update({date:date})
+        await Planner.find({value:selected.id,key:'id'}).update({date:date})
+        setOpen(false)
+    }
+    const handlePullToday=async()=>{
+        await DB.open()
+        const planData = await Planner.find({value:selected.id,key:'id'}).get()
+        const date = new Date(planData[0].date)
+        await Planner.find({value:selected.id,key:'id'}).update({date:new Date()})
         setOpen(false)
     }
     const handleChangeDate=()=>{
@@ -42,7 +49,7 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
     const [inputMemo,setInputMemo] = useState('')
     const handleCompleteMemo=async()=>{
         await DB.open()
-        await Planner.find({value:selected,key:'id'}).update({memo:inputMemo})
+        await Planner.find({value:selected.id,key:'id'}).update({memo:inputMemo})
         setMemoOpen(false)
         setOpen(false)
         setInputMemo('')
@@ -61,9 +68,10 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
     const [memoData,setMemoData] = useState(null)
     useEffect(()=>{
         if(!selected) return
+        
         DB.open()
         .then(()=>{
-            Planner.find({value:selected,key:'id'}).get()
+            Planner.find({value:selected.id,key:'id'}).get()
             .then((data)=>{
                 if(data.memo!==''){
                     setMemoData(data[0]?.memo)
@@ -80,7 +88,7 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
     const changeDateSubmit=async(value)=>{
         if(value){
             await DB.open()
-            await Planner.find({value:selected,key:'id'}).update({date:value})
+            await Planner.find({value:selected.id,key:'id'}).update({date:value})
         }
         setChangeDateOpen(false)
         setOpen(false)
@@ -108,9 +116,14 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
             {
                 menuData.map(e=>
                 <>
-                  <div className={styles.menuRow} onClick={e.handler}>
+                {(new Date(selected.date).toISOString().split('T')[0]!==new Date().toISOString().split('T')[0])&&e.name=='내일하기'?
+                <div className={styles.menuRow} onClick={handlePullToday}>
+                    <div className={styles.icon} style={{background:e.color}}>{icons[e.icon]}</div>오늘 하기
+                  </div>
+                :<div className={styles.menuRow} onClick={e.handler}>
                     <div className={styles.icon} style={{background:e.color}}>{icons[e.icon]}</div>{e.name}
                   </div>
+                }
                   {
                         e.name=='메모'&&memoData?<div className={styles.memoData}>
                         {memoData}

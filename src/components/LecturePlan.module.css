@@ -69,3 +69,34 @@
 .planType{
     float: left;
 }
+.lectureRow{
+    display: flex;
+    align-items: center;
+    margin-top: 0.2rem;
+}
+.checkBox{
+    display: none;
+}
+.checkBox + label{
+    display: inline-block;
+    width: 2rem;
+    height: 2rem;
+    background-image: url('../assets/images/checkbox.png');
+    background-position: center;
+    background-size : cover;
+    position: relative;
+    text-align: center;
+    margin-right: 0.5rem;
+}
+.checkBox:checked + label::after{
+    content: '';
+    width: 2rem;
+    height: 2rem;
+    position: absolute;
+    background-image: url('../assets/images/check.png');
+    background-position: center;
+    background-size : cover;
+    bottom: 0;
+    left: 0;
+}
+ 

@@ -33,14 +33,14 @@ function CalendarArr({year,month,setDay,selectedDay,data}){
     }
     
     if (
-      year === selectedDay.getFullYear() &&
-      month === selectedDay.getMonth() + 1 &&
-      i === selectedDay.getDate()
+      year === new Date(selectedDay).getFullYear() &&
+      month === new Date(selectedDay).getMonth() + 1 &&
+      i === new Date(selectedDay).getDate()
     ) {
       isSelected = true;
     }
     
-    const daydata = data.filter(e=>e.date.getDate()==i)
+    const daydata = data.filter(e=>new Date(e.date).getDate()==i)
     const subjects = [...new Set(daydata.map(item => item.subject))];
     
     allDaysArr.push(
@@ -84,8 +84,8 @@ function CalendarArr({year,month,setDay,selectedDay,data}){
 }
 function Calendar({setDay,selectedDay}){
     const [day,setCalDate]= useState(new Date())
-    const filter=(e)=>e.date.getMonth()==day.getMonth()
-    const filter2=(e)=>e.date.getFullYear()==day.getFullYear()
+    const filter=(e)=>new Date(e.date).getMonth()==day.getMonth()
+    const filter2=(e)=>new Date(e.date).getFullYear()==day.getFullYear()
     const [monthly,setMonthly] = useState([])
     
     useEffect(()=>{
@@ -114,7 +114,7 @@ function Calendar({setDay,selectedDay}){
     }
     
     return(
-        <>
+        <div className={styles.container}>
         <div className={styles.CalendarHeader}>
           <div className={styles.YDContainer}>
         <div className={styles.controller} onClick={handlePrevMonth}>&lt; &nbsp;</div>  
@@ -139,7 +139,7 @@ function Calendar({setDay,selectedDay}){
         <CalendarArr year={day.getFullYear()} month={day.getMonth()+1} setDay={setDay} selectedDay={selectedDay} data={monthly}/>
         </tbody>
       </table>
-        </>
+        </div>
         )
 }
 

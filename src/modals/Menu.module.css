@@ -1,13 +1,16 @@
 .container{
     position: fixed;
-    width: 100vw;
-    height: 100vh;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 99;
     background: rgba(0,0,0,0.7);
     top: 0;
     display: flex;
     justify-content: center;
 }
+
 .menuContainer{
     animation: fadeIn 0.3s ease-out forwards;
     position: fixed;
@@ -17,6 +20,11 @@
     background: white;
     border-radius: 1rem 1rem 0 0;
     overflow: hidden;
+}
+@media (max-width: 28rem) {
+  .menuContainer {
+    width: calc(100% - 2rem);
+  }
 }
 .menuRow{
     display: flex;

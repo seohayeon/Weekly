@@ -89,12 +89,17 @@ function DetailPlan({
       <>
           <div className={styles.LectureListContainer}>
         
-          강좌선택
-          <input type="checkbox" onChange={handleAllCheck} checked={checkItems.length==lectureArr.length?true:false}/>
+          <div className={styles.lectureRow}>
+          <input type="checkbox" onChange={handleAllCheck} checked={checkItems.length==lectureArr.length?true:false} className={styles.checkBox} id='selectAll'/>
+                 <label htmlFor='selectAll'></label>
+                 전체선택
+        </div>
            {
                lectureArr.map(e=>
-               <div>
-                 <input checked={checkItems.indexOf(e)==-1?false:true} id={e} type='checkbox' onChange={checkHandled}/> {e}강
+               <div className={styles.lectureRow}>
+                 <input checked={checkItems.indexOf(e)==-1?false:true} id={e} type='checkbox' onChange={checkHandled} className={styles.checkBox}/>
+                 <label htmlFor={e}></label>
+                 {e}강
                  {lecturesDate[e]?<input type='date' value={format(lecturesDate[e], 'yyyy-MM-dd')} onChange={(event)=>handleDetailDate(event.target.value,e)}/>:null}
                 </div> 
                )

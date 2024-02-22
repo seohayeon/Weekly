@@ -49,8 +49,8 @@ const Home = () => {
   const [selected,setSelected] = useState(null)
   
   useEffect(()=>{
-    const filter=(e)=>e.date.getMonth()==day.getMonth()
-    const filter2=(e)=>e.date.getDate()==day.getDate()
+    const filter=(e)=>new Date(e.date).getMonth()==day.getMonth()
+    const filter2=(e)=>new Date(e.date).getDate()==day.getDate()
     DB.open()
     .then(async ()=>{
         const data = await Planner.find(null,filter,filter2).get();
@@ -79,7 +79,7 @@ const Home = () => {
   }
   
   return (
-    <div>
+    <div className={styles.container}>
     <Calendar selectedDay={day} setDay={setDay} todayPlan={todayPlan}/>
       <div className={styles.todayPlan}>
       {todayFormat}의 계획
@@ -89,10 +89,10 @@ const Home = () => {
              <Checkbox id={`check${i}`} checked={e.clear} onChange={()=>handleCheckBox(e,i)} color={ColorPalette[e.subject]}/>
              <Label htmlFor={`check${i}`}/>
              
-             <span onClick={()=>{setMenuOpen(!isMenuOpen);setSelected(e.id)}}>
+             <span onClick={()=>{setMenuOpen(!isMenuOpen);setSelected(e)}} className={styles.lectureInfo}>
              [{e.subject}] {e.name} {e.lectureNum}강
-             {e.memo!==''?<span><MemoIcon width={15} height={15}/></span>:null}
              </span>
+             <span>{e.memo!==''?<span><MemoIcon width={15} height={15}/></span>:null}</span>
            </div>
           )
       }</div>
