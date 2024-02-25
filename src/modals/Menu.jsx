@@ -116,7 +116,7 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
             {
                 menuData.map(e=>
                 <>
-                {(new Date(selected.date).toISOString().split('T')[0]!==new Date().toISOString().split('T')[0])&&e.name=='내일하기'?
+                {(new Date(selected.date).toLocaleDateString()!==new Date().toLocaleDateString())&&e.name=='내일하기'?
                 <div className={styles.menuRow} onClick={handlePullToday}>
                     <div className={styles.icon} style={{background:e.color}}>{icons[e.icon]}</div>오늘 하기
                   </div>
@@ -125,8 +125,10 @@ export default function Menu({isOpen,setOpen,selected,setSelected}){
                   </div>
                 }
                   {
-                        e.name=='메모'&&memoData?<div className={styles.memoData}>
-                        {memoData}
+                        e.name=='메모'&&memoData?<div className={styles.memoData}>                 {
+                            memoData.split('\n').map( line => {
+            return (<span>{line}<br/></span>)
+                            })}
                         </div>:null
                     }
                   </>

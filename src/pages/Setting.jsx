@@ -14,20 +14,24 @@ function App() {
   request.addEventListener("success", (e) => {
           db = e.target.result;
    });
-      
+  const [inputs,setInputs] = useState({bakPwd:'',restorePwd:''})
+  const {bakPwd,restorePwd} = inputs  
+  
   const handleExportData=async(pwd)=>{
     exportToJson(db)
     .then(result => {
-        const ciphertext = CryptoJS.AES.encrypt(result, 'secret key').toString();
+        const ciphertext = CryptoJS.AES.encrypt(result,bakPwd).toString();
         data=ciphertext
         console.log('Exported JSON string:', ciphertext)
         const element = document.createElement("a");
         element.href = URL.createObjectURL(
         new Blob([ciphertext],{type: 'text/plain'})
         );
-        element.download = `weekly-${+new Date()}.back`;
+        element.download = `weekly-${+new Date()}.bak`;
         document.body.appendChild(element); // Required for this to work in FireFox
         element.click();
+        setInputs({...inputs,bakPwd:''})
+        setOpen(false)
     })
     .catch(error => {
         console.error('Something went wrong during export:', error)
@@ -54,9 +58,7 @@ function App() {
   }
   const [exportDataModal,setExportDataModal] = useState(false) 
   const [importDataModal,setImportDataModal] = useState(false) 
-  const [inputs,setInputs] = useState({bakPwd:'',restorePwd:''})
   
-  const {bakPwd,restorePwd} = inputs
   const handleInput=(e)=>{
       const {name,value} = e.target
       setInputs({...inputs,[name]:value})

@@ -38,7 +38,7 @@ const saveToDB= async(id,name,weekly,lectures,startDate,subject)=>{
   const filter = (data) => {
       const today = new Date()
       today.setHours(0,0,0,0);
-      return data.date>=today
+      return new Date(data.date)>=today
   }
   
   await DB.open()

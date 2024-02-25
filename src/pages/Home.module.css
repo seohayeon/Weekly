@@ -8,13 +8,13 @@
 }
 .todayPlan{
     background: white;
-    width: 26rem;
+    width: 28rem;
     margin-top: 5rem;
-    padding: 1rem;
+    padding-bottom: 1rem;
     border: 0.2rem solid black;
     display: block;
     border-radius: 0.5rem;
-    box-shadow: 0.3rem 0.3rem #000;
+    box-shadow: 0rem 0.3rem #000;
     margin-bottom: 5rem;
 }
 @media (max-width: 26rem) {
@@ -59,4 +59,19 @@
 }
 .clear{
     text-decoration: line-through;
+}
+.todayPlanHeader{
+    background: black;
+    color: white;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+.todayPlanBody{
+    padding: 1rem;
+}
+.ellipsisIcon{
+    display: block;
+    margin-left:auto;
 }

@@ -40,7 +40,7 @@ function App() {
        }
      </div>
      <AddLecture setModalOpen={setAddLecModalOpen} isOpen={AddLecModalOpen} setView={setView}/>
-     <LectureDetail setModalOpen={setLecDetailModalOpen} isOpen={LecDetailModalOpen} lecture={selectLecture}/>
+     <LectureDetail setModalOpen={setLecDetailModalOpen} isOpen={LecDetailModalOpen} lecture={selectLecture} setLecture={setSelectLecture}/>
     </div>
   );
 };
